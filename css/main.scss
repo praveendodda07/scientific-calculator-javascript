@@ -1,0 +1,97 @@
+$panelColor: rgb(60, 91, 101);
+$displayColor: white;
+$displayTextColor: black;
+$buttonColor: rgb(96, 119, 132);
+$buttonTextColor: white;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Press Start 2P", cursive;
+  background-color: rgb(230, 211, 47);
+}
+
+.calculator {
+  width: 200px;
+  background-color: $panelColor;
+  margin: 30px auto;
+  padding: 10px 15px 15px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 4px gray;
+
+  .brand-name {
+    text-align: center;
+    padding-bottom: 10px;
+    color: rgba($color: #f1eded, $alpha: 0.2);
+    text-shadow: 3px 0px 0px gray;
+  }
+  .display-wrapper {
+    overflow-x: auto;
+    background-color: $displayColor;
+    padding: 10px 5px 0px;
+    color: $displayTextColor;
+    height: 24px;
+    border: 5px groove rgb(68, 64, 64);
+    text-align: right;
+
+    &::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+    }
+
+    .display {
+      min-width: 100%;
+      width: max-content;
+    }
+  }
+
+  .buttons-panel {
+    padding-top: 10px;
+
+    .button {
+      cursor: pointer;
+      border: none;
+      background-color: $buttonColor;
+      color: $buttonTextColor;
+      padding: 7px;
+      font-size: 24px;
+      font-weight: bold;
+      border-radius: 50%;
+      &.equal {
+        background-color: burlywood;
+      }
+
+      &:hover {
+        background-color: rgba($color: $buttonColor, $alpha: 0.6);
+      }
+    }
+
+    .dynamic-buttons {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 10px;
+    }
+
+    .action-buttons {
+      margin-bottom: 10px;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      .button {
+        border-radius: 10px;
+      }
+      .power-button {
+        &.power-on {
+          background-color: rgb(14, 238, 14);
+        }
+        &.power-off {
+          background-color: red;
+        }
+      }
+      .clear-button {
+        background-color: red;
+      }
+    }
+  }
+}

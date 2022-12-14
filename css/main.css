@@ -1,0 +1,83 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Press Start 2P", cursive;
+  background-color: rgb(230, 211, 47);
+}
+
+.calculator {
+  width: 200px;
+  background-color: rgb(60, 91, 101);
+  margin: 30px auto;
+  padding: 10px 15px 15px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 4px gray;
+}
+.calculator .brand-name {
+  text-align: center;
+  padding-bottom: 10px;
+  color: rgba(241, 237, 237, 0.2);
+  text-shadow: 3px 0px 0px gray;
+}
+.calculator .display-wrapper {
+  overflow-x: auto;
+  background-color: white;
+  padding: 10px 5px 0px;
+  color: black;
+  height: 24px;
+  border: 5px groove rgb(68, 64, 64);
+  text-align: right;
+}
+.calculator .display-wrapper::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+.calculator .display-wrapper .display {
+  min-width: 100%;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+.calculator .buttons-panel {
+  padding-top: 10px;
+}
+.calculator .buttons-panel .button {
+  cursor: pointer;
+  border: none;
+  background-color: rgb(96, 119, 132);
+  color: white;
+  padding: 7px;
+  font-size: 24px;
+  font-weight: bold;
+  border-radius: 50%;
+}
+.calculator .buttons-panel .button.equal {
+  background-color: burlywood;
+}
+.calculator .buttons-panel .button:hover {
+  background-color: rgba(96, 119, 132, 0.6);
+}
+.calculator .buttons-panel .dynamic-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 10px;
+}
+.calculator .buttons-panel .action-buttons {
+  margin-bottom: 10px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.calculator .buttons-panel .action-buttons .button {
+  border-radius: 10px;
+}
+.calculator .buttons-panel .action-buttons .power-button.power-on {
+  background-color: rgb(14, 238, 14);
+}
+.calculator .buttons-panel .action-buttons .power-button.power-off {
+  background-color: red;
+}
+.calculator .buttons-panel .action-buttons .clear-button {
+  background-color: red;
+}/*# sourceMappingURL=main.css.map */
