@@ -1,15 +1,9 @@
-/**
- *  0-9
- *  .
- *  + - * /
- *
- *  = C
- */
 const buttonsPanelDom = document.getElementById("calc-buttons");
 const displayDom = document.getElementById("display");
 const powerButtonDom = document.getElementById("power-button");
 
-let isDisplayOn = true;
+let isDisplayOn = false;
+let isEvaluated = false;
 
 const displayableButtons = [
   ["7", "8", "9", "+"],
@@ -34,9 +28,27 @@ let expression = "";
 function onButtonClick(value) {
   if (!isDisplayOn) return;
 
-  const lastCharAtEnd = expression.slice(-1);
+  if (value == "=") {
+    expression = eval(expression);
+    updateDisplay(expression);
+    isEvaluated = true;
+    return;
+  }
 
-  if (isNaN(lastCharAtEnd) && isNaN(value)) return;
+  if (isEvaluated) {
+    clearAll();
+    isEvaluated = false;
+  }
+
+  const tempExp = expression + value;
+  const numberStrings = tempExp.split(/[+*/-]+/);
+  const operatorsStrings = tempExp.split(/[0-9.]+/);
+  const currentOperator = operatorsStrings.splice(-1)[0];
+  const lastNumber = numberStrings.splice(-1)[0];
+
+  if (currentOperator.length > 1 || isNaN(lastNumber)) return;
+
+  if (lastNumber == ".") value = "0.";
 
   expression += value;
   updateDisplay(expression);
